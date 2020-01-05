@@ -5,7 +5,7 @@ using UnityEngine;
 public class LevelGenerator : MonoBehaviour
 {
     //Publics
-    public enum Level{
+    public enum LevelType{
         PlaceholderEasy,
         PlaceholderMed,
         PlaceholderHard
@@ -25,8 +25,8 @@ public class LevelGenerator : MonoBehaviour
         
     }
 
-    void GenerateLevel(Level level)
+    public void GenerateLevel(LevelType level)
     {
-
+        Debug.Log(string.Format("Would be generating level of type: {0}", level));
     }
 }
