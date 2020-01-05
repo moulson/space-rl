@@ -13,8 +13,11 @@ public class WorldController : MonoBehaviour
 
     void Start()
     {
-        var generator = new LevelGenerator();
+        //Level generation
+        var generator = GetComponent<LevelGenerator>();
         generator.GenerateLevel(level);
+
+        //Player initialisation
         var player = Instantiate(GetComponent<Player>().PlayerModel);
         player.transform.position = root;
         player.name = "Player";

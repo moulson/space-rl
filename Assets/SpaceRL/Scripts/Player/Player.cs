@@ -8,9 +8,4 @@ public class Player : MonoBehaviour
     public float MaxSpeed;
     public GameObject PlayerModel;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
