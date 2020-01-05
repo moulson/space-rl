@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Room;
 
-public class RoomBuilder : MonoBehaviour
+public class Room
 {
     public enum RoomType
     {
@@ -15,6 +16,13 @@ public class RoomBuilder : MonoBehaviour
         Shop = 5,
         Secret = 6
     }
+
+    public RoomType Type { get; set; }
+}
+
+public class RoomBuilder : MonoBehaviour
+{
+    
 
 
     // Start is called before the first frame update
@@ -29,9 +37,9 @@ public class RoomBuilder : MonoBehaviour
         
     }
 
-    void BuildRoom(RoomType type)
+    void BuildRoom(Room room)
     {
-        switch (type)
+        switch (room.Type)
         {
             case RoomType.BossRoom:
                 //Check if a BossRoom has already been rendered in the room
