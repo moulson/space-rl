@@ -3,40 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using static Room;
 
-public class Room
-{
-    public enum RoomType
-    {
-        
-        Standard = 0,
-        Treasure = 1,
-        Chance = 2,
-        BossRoom = 3,
-        BossTreasure = 4,
-        Shop = 5,
-        Secret = 6
-    }
-
-    public RoomType Type { get; set; }
-}
-
 public class RoomBuilder : MonoBehaviour
 {
-    
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void BuildRoom(Room room)
     {
         switch (room.Type)

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelGenerator : MonoBehaviour
+public class LevelGenerator
 {
     //Publics
     public enum LevelType{
@@ -13,20 +13,11 @@ public class LevelGenerator : MonoBehaviour
 
     //Privates
     private RoomBuilder roomBuilder;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public void GenerateLevel(LevelType levelType)
     {
-        
-    }
-
-    public void GenerateLevel(LevelType level)
-    {
-        Debug.Log(string.Format("Would be generating level of type: {0}", level));
+        Level level = new Level();
+        level.Type = levelType;
+        Debug.Log(string.Format("Generating level of type: {0}", level.Type));
     }
 }
