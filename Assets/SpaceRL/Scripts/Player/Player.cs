@@ -8,4 +8,12 @@ public class Player : MonoBehaviour
     public float MaxSpeed;
     public GameObject PlayerModel;
 
+    void Update()
+    {
+
+        if (Input.GetButton("Vertical"))
+        {
+            Debug.Log("Move Forward");
+        }
+    }
 }
