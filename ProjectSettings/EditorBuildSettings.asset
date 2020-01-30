@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/SpaceRL/Scenes/StartMenu.unity
     guid: a6a03833a2d0d934394cc8016d279d4f
+  - enabled: 1
+    path: Assets/SpaceRL/Scenes/dev-001.unity
+    guid: a4bc8ac2bc49b854785c3174da75badb
   m_configObjects: {}
