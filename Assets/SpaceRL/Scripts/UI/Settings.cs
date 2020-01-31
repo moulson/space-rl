@@ -9,8 +9,6 @@ public class Setting
 {
     public string Name { get; set; }
     public string Value { get; set; }
-
-
 }
 
 public static class SettingName
@@ -47,7 +45,7 @@ public class Settings
         }
         if (!File.Exists(settingsPath))
         {
-            File.Create(settingsPath);
+            CreateDefaults(false);
         }
 
         //Read the settings file to a list
@@ -85,4 +83,37 @@ public class Settings
         return settings.FirstOrDefault(x => x.Name == setting);
     }
 
+    private void CreateDefaults(bool dvorak = false){
+        //create settings
+        List<Setting> settings = new List<Settings>();
+        string dataPath = $"{System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData)}/SpaceRL/";
+        string settingsPath = $"{dataPath}settings.cfg";
+        if (!Directory.Exists(dataPath)) {
+            Directory.CreateDirectory(dataPath);
+        }
+        if (!File.Exists(settingsPath))
+        {
+            File.Create(settingsPath);
+        }
+
+        //Default settings values
+        settings.Add(new Setting{Name = SettingName.MoveForward, Value = "w"})
+        settings.Add(new Setting{Name = SettingName.MoveBack, Value = "s"})
+        settings.Add(new Setting{Name = SettingName.MoveLeft, Value = "a"})
+        settings.Add(new Setting{Name = SettingName.MoveRight, Value = "d"})
+        settings.Add(new Setting{Name = SettingName.Jump, Value = "space"})
+        settings.Add(new Setting{Name = SettingName.PrimaryAttack, Value = "mouse0"})
+
+        using(StreamWriter sw = new StreamWriter(settingsPath)){
+            foreach (var setting in settings)
+            {
+                sw.WriteLine($"{setting.Name} = {setting.Value}");
+            }
+        }
+    }
+
+    public static bool IsValidSetting(this Setting setting){
+        //list every valid setting
+        return setting.Name == SettingName.MoveForward ||setting.Name == SettingNameMoveBack ||setting.Name == SettingName.MoveLeft ||setting.Name == SettingName.MoveRight ||setting.Name == SettingName.Jump ||setting.Name == SettingName.PrimaryAttack
+    }
 }
